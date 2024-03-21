@@ -134,7 +134,7 @@ O que é Spring Data JPA?
 
 - Será um projeto usado no curso.
 - Ajuda a implementar repositorio JPA de forma simples
-- Conhecido por Jackarta Persistance (JPA) é uma especificação de persistencia
+- Conhecido por Jakarta Persistance (JPA) é uma especificação de persistencia
   de dados pra Java
 - Tecnologia que ajuda com acesso e operações com banco de dados relacional +
   java.
@@ -153,3 +153,17 @@ O que é Spring Boot?
 - O Spring Boot tambem pode configurar bibliotecas terceiras que pode ser usado
   pelo projeto.
 - O Spring Boot não substitui outros projetos do ecossistema.
+
+
+
+Como atualizar o projeto quando ele está apresentando erro?
+- Clique com o botão direito no arquivo pom.xml
+- Busque por maven > Reload Project
+- Outra opção é clicar na letra m > botão direito no awpag-api > Reload 
+  Project
+
+Como utilizar o maven para realizar o clean e o package do projeto?
+- Execute o comando: ```mvn clean package``` na raiz do projeto
+
+Como executar o arquivo gerado .jar?
+- Execute o comando: ```java -jar <NOME_ARQUIVO.JAR>```
