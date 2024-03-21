@@ -173,3 +173,14 @@ Como executar o arquivo gerado .jar?
 Documentação sobre HTTP Status Code Registry
 - https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
 - https://httpstatuses.io/
+
+O que é Content Negotiation?
+- Permitir que o servidor trabalhe respondendo com JSON ou XML é o Content 
+  Negotiation.
+- Para permitir que ocorra o Content Negotiation foi necessario utilizar 
+  uma dependencia para formatar a resposta para XML.
+- Dependencia: jackson-dataformat-xml
+
+Como atualizar automaticamente a aplicação a cada modificação feita?
+- Utilize a dependencia devtools no pom.xml
+- Ao finalizar a edição no codigo, faça o build project Ctrl+F9
