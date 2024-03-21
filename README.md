@@ -167,3 +167,9 @@ Como utilizar o maven para realizar o clean e o package do projeto?
 
 Como executar o arquivo gerado .jar?
 - Execute o comando: ```java -jar <NOME_ARQUIVO.JAR>```
+
+
+
+Documentação sobre HTTP Status Code Registry
+- https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
+- https://httpstatuses.io/
