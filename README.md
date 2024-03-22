@@ -192,3 +192,12 @@ Como levantar o MySql?
   container
 - Execute o comando ```docker container start <container_id>``` para 
   levantar o container parado
+
+
+O que é, para que serve Jakarta EE?
+- Jakarta servirá, no projeto, para realizar a persistencia de dados.
+- Uma das especificações do Jakarta é o "Jakarta Persistence"
+- https://jakarta.ee/specifications/persistence/
+- Jakarta fornece uma API e o mapeamento de objeto relacional.
+- A dependencia do Jakarta está presente na dependencia spring boot starter 
+  data jpa > hibernate core > jakarta persistence api
