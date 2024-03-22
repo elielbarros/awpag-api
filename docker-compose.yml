@@ -1,7 +1,7 @@
 services:
   mysql-server:
     env_file:
-      - .env
+      - .env-database
     container_name: mysql-server
     hostname: mysql-server
     image: mysql:8
@@ -12,7 +12,7 @@ services:
       - --collation-server=utf8mb4_unicode_ci
       - --innodb_force_recovery=0
     volumes:
-      - ./mysql-server:/var/lib/mysql
+      - ./.mysql-server:/var/lib/mysql
     ports:
       - 3306:3306
     environment:
