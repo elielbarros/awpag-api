@@ -201,3 +201,9 @@ O que é, para que serve Jakarta EE?
 - Jakarta fornece uma API e o mapeamento de objeto relacional.
 - A dependencia do Jakarta está presente na dependencia spring boot starter 
   data jpa > hibernate core > jakarta persistence api
+
+O que é, para que serve Spring Data JPA?
+- Substitui EntityManager e evite codigo Boilerplate
+- Ajuda na implementação de repositorios
+- Repositorio é um padrao de projetos: Padrao onde classes são criadas com 
+  o objetivo de fazer operações de persistencia de dados.
