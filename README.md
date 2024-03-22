@@ -184,3 +184,11 @@ O que é Content Negotiation?
 Como atualizar automaticamente a aplicação a cada modificação feita?
 - Utilize a dependencia devtools no pom.xml
 - Ao finalizar a edição no codigo, faça o build project Ctrl+F9
+
+Como levantar o MySql?
+- Execute o comando ```docker compose up -d``` na pasta raiz onde o arquivo 
+  docker-compose.yml está
+- Execute o comando ```docker container stop <container_id>``` para parar o 
+  container
+- Execute o comando ```docker container start <container_id>``` para 
+  levantar o container parado
