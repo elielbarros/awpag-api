@@ -207,3 +207,8 @@ O que é, para que serve Spring Data JPA?
 - Ajuda na implementação de repositorios
 - Repositorio é um padrao de projetos: Padrao onde classes são criadas com 
   o objetivo de fazer operações de persistencia de dados.
+
+O que é, para que serve o Jakarta Validation?
+- É uma especificação do Jakarta EE (anteriormente Java EE) que define um 
+  conjunto de anotações e APIs para validação de dados em Java.
+- https://jakarta.ee/specifications/bean-validation/
