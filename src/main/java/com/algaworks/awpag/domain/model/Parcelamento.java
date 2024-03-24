@@ -32,7 +32,7 @@ public class Parcelamento {
     private Cliente cliente;
 
     @NotBlank
-    @Size(max = 20)
+    @Size(max = 50)
     private String descricao;
 
     @NotNull

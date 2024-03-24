@@ -212,3 +212,34 @@ O que é, para que serve o Jakarta Validation?
 - É uma especificação do Jakarta EE (anteriormente Java EE) que define um 
   conjunto de anotações e APIs para validação de dados em Java.
 - https://jakarta.ee/specifications/bean-validation/
+
+O que é a especificação RFC 7807? (Boas praticas com Exception Handler)
+- RFC é uma publicação oficial de uma organização conhecida por IETF
+- IETF padroniza como a internet, protocolos, procedimentos, especificações 
+  técnicas e etc funcionam.
+- RFC 7807 serve para padronizar representação de informações de erro em 
+  respostas HTTP.
+- RFC 7807 - Problem Details for HTTP APIs
+- https://datatracker.ietf.org/doc/html/rfc7807
+- ```
+  {
+    "type": "https://example.com/probs/out-of-credit", URI QUE IDENFITICA O 
+  TIPO DO PROBLEMA, NAO NECESSARIAMENTE DEVE SER ACESSIVEL PELO NAVEGADOR
+    "title": "You do not have enough credit.", BREVE DESCRICAO DO PROBLEMA
+    "detail": "Your current balance is 30, but that costs 50.", DESCRICAO 
+  DETALHADA
+    "instance": "/account/12345/msgs/abc", URI DE ONDE OCORREU O PROBLEMA
+    "balance": 30, PROPRIEDADE COSTUMIZADA
+    "accounts": ["/account/12345",
+                 "/account/67890"] OUTRA PROPRIEDADE COSTUMIZADA
+   }
+  ```
+- O Spring Framework MVC na versao 6 dá suporte para essa RFC 7807
+- Para aderir RFC, necessário extender ResponseEntityExceptionHandler
+- MethodArgumentNotValidException > codes [Email.cliente.email, Email.email, 
+  Email.java.lang.String, Email]
+- Escolha um dos codigos para costumizar a mensagem, lembrando que cada 
+  codigo tem o seu nivel de especificidade.
+- Lembre de alterar o File Encoding do messages.properties para UTF-8, pra 
+  isso acesse:
+- Settings > File Encodings > Default encoding for propertis files: UTF-8
