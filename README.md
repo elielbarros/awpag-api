@@ -154,70 +154,76 @@ O que é Spring Boot?
   pelo projeto.
 - O Spring Boot não substitui outros projetos do ecossistema.
 
-
-
 Como atualizar o projeto quando ele está apresentando erro?
+
 - Clique com o botão direito no arquivo pom.xml
 - Busque por maven > Reload Project
-- Outra opção é clicar na letra m > botão direito no awpag-api > Reload 
+- Outra opção é clicar na letra m > botão direito no awpag-api > Reload
   Project
 
 Como utilizar o maven para realizar o clean e o package do projeto?
+
 - Execute o comando: ```mvn clean package``` na raiz do projeto
 
 Como executar o arquivo gerado .jar?
+
 - Execute o comando: ```java -jar <NOME_ARQUIVO.JAR>```
 
-
-
 Documentação sobre HTTP Status Code Registry
+
 - https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
 - https://httpstatuses.io/
 
 O que é Content Negotiation?
-- Permitir que o servidor trabalhe respondendo com JSON ou XML é o Content 
+
+- Permitir que o servidor trabalhe respondendo com JSON ou XML é o Content
   Negotiation.
-- Para permitir que ocorra o Content Negotiation foi necessario utilizar 
+- Para permitir que ocorra o Content Negotiation foi necessario utilizar
   uma dependencia para formatar a resposta para XML.
 - Dependencia: jackson-dataformat-xml
 
 Como atualizar automaticamente a aplicação a cada modificação feita?
+
 - Utilize a dependencia devtools no pom.xml
 - Ao finalizar a edição no codigo, faça o build project Ctrl+F9
 
 Como levantar o MySql?
-- Execute o comando ```docker compose up -d``` na pasta raiz onde o arquivo 
+
+- Execute o comando ```docker compose up -d``` na pasta raiz onde o arquivo
   docker-compose.yml está
-- Execute o comando ```docker container stop <container_id>``` para parar o 
+- Execute o comando ```docker container stop <container_id>``` para parar o
   container
-- Execute o comando ```docker container start <container_id>``` para 
+- Execute o comando ```docker container start <container_id>``` para
   levantar o container parado
 
-
 O que é, para que serve Jakarta EE?
+
 - Jakarta servirá, no projeto, para realizar a persistencia de dados.
 - Uma das especificações do Jakarta é o "Jakarta Persistence"
 - https://jakarta.ee/specifications/persistence/
 - Jakarta fornece uma API e o mapeamento de objeto relacional.
-- A dependencia do Jakarta está presente na dependencia spring boot starter 
+- A dependencia do Jakarta está presente na dependencia spring boot starter
   data jpa > hibernate core > jakarta persistence api
 
 O que é, para que serve Spring Data JPA?
+
 - Substitui EntityManager e evite codigo Boilerplate
 - Ajuda na implementação de repositorios
-- Repositorio é um padrao de projetos: Padrao onde classes são criadas com 
+- Repositorio é um padrao de projetos: Padrao onde classes são criadas com
   o objetivo de fazer operações de persistencia de dados.
 
 O que é, para que serve o Jakarta Validation?
-- É uma especificação do Jakarta EE (anteriormente Java EE) que define um 
+
+- É uma especificação do Jakarta EE (anteriormente Java EE) que define um
   conjunto de anotações e APIs para validação de dados em Java.
 - https://jakarta.ee/specifications/bean-validation/
 
 O que é a especificação RFC 7807? (Boas praticas com Exception Handler)
+
 - RFC é uma publicação oficial de uma organização conhecida por IETF
-- IETF padroniza como a internet, protocolos, procedimentos, especificações 
+- IETF padroniza como a internet, protocolos, procedimentos, especificações
   técnicas e etc funcionam.
-- RFC 7807 serve para padronizar representação de informações de erro em 
+- RFC 7807 serve para padronizar representação de informações de erro em
   respostas HTTP.
 - RFC 7807 - Problem Details for HTTP APIs
 - https://datatracker.ietf.org/doc/html/rfc7807
@@ -236,20 +242,44 @@ O que é a especificação RFC 7807? (Boas praticas com Exception Handler)
   ```
 - O Spring Framework MVC na versao 6 dá suporte para essa RFC 7807
 - Para aderir RFC, necessário extender ResponseEntityExceptionHandler
-- MethodArgumentNotValidException > codes [Email.cliente.email, Email.email, 
+- MethodArgumentNotValidException > codes [Email.cliente.email, Email.email,
   Email.java.lang.String, Email]
-- Escolha um dos codigos para costumizar a mensagem, lembrando que cada 
+- Escolha um dos codigos para costumizar a mensagem, lembrando que cada
   codigo tem o seu nivel de especificidade.
-- Lembre de alterar o File Encoding do messages.properties para UTF-8, pra 
+- Lembre de alterar o File Encoding do messages.properties para UTF-8, pra
   isso acesse:
 - Settings > File Encodings > Default encoding for propertis files: UTF-8
 
 ### Boas práticas para trabalhar com data/hora
 
-- O spring faz serialização e deserialização de data/hora para JSON ou do 
+- O spring faz serialização e deserialização de data/hora para JSON ou do
   JSON, automaticamente utilizando o padrao ISO-8601
 - Esse padrão é internacional e recomendado para usar em Rest API's
-- Offset é a diferença de horas entre UTC e o horario em que está sendo 
+- Offset é a diferença de horas entre UTC e o horario em que está sendo
   trabalhado, por exemplo horario de Brasilia.
-- É importante trabalhar com Offset na data/hora quando estiver trabalhando 
+- É importante trabalhar com Offset na data/hora quando estiver trabalhando
   com Rest APIs
+
+### Pq nao usar uma entidade como Resources Representation de uma API?
+
+- Atualmente as entidades da aplicação que estão no Domain Model estão
+  sendo utilizadas como Modelo de representação do recurso (Resources
+  Representation) da API
+- Versionamento: Se as entidades de domínio mudarem ao longo do tempo, pode ser
+  difícil gerenciar versões diferentes da mesma entidade para atender às
+  necessidades de diferentes versões da API. Usar objetos DTO (Data Transfer
+  Objects) separados como representações de recursos pode simplificar o
+  processo de versionamento, pois permite que você evolua a API
+  independentemente do modelo de domínio subjacente.
+- Acoplamento entre camadas: Suas entidades de domínio podem ter uma estrutura
+  de dados específica para atender às necessidades do seu domínio. Expor
+  diretamente essas entidades através da API pode criar um acoplamento
+  indesejado entre a camada de domínio e a camada de apresentação (API), o que
+  pode dificultar a evolução independente das diferentes partes do sistema.
+- Desacoplamento de formato de representação: Ao usar objetos DTO dedicados,
+  você pode definir formatos de representação diferentes para diferentes casos
+  de uso da API. Por exemplo, você pode ter representações diferentes para a
+  mesma entidade que são otimizadas para diferentes dispositivos ou tipos de
+  clientes (por exemplo, JSON para clientes da web e protobuf para clientes
+  móveis).
+- No lugar de usar a entidade, é importante usar um DTO, Data Transfer Object
