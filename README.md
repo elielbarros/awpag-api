@@ -243,3 +243,13 @@ O que é a especificação RFC 7807? (Boas praticas com Exception Handler)
 - Lembre de alterar o File Encoding do messages.properties para UTF-8, pra 
   isso acesse:
 - Settings > File Encodings > Default encoding for propertis files: UTF-8
+
+### Boas práticas para trabalhar com data/hora
+
+- O spring faz serialização e deserialização de data/hora para JSON ou do 
+  JSON, automaticamente utilizando o padrao ISO-8601
+- Esse padrão é internacional e recomendado para usar em Rest API's
+- Offset é a diferença de horas entre UTC e o horario em que está sendo 
+  trabalhado, por exemplo horario de Brasilia.
+- É importante trabalhar com Offset na data/hora quando estiver trabalhando 
+  com Rest APIs
