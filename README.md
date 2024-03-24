@@ -260,7 +260,7 @@ O que é a especificação RFC 7807? (Boas praticas com Exception Handler)
 - É importante trabalhar com Offset na data/hora quando estiver trabalhando
   com Rest APIs
 
-### Pq nao usar uma entidade como Resources Representation de uma API?
+### Pq nao usar uma Domain Model como Resources Representation de uma API?
 
 - Atualmente as entidades da aplicação que estão no Domain Model estão
   sendo utilizadas como Modelo de representação do recurso (Resources
@@ -283,3 +283,7 @@ O que é a especificação RFC 7807? (Boas praticas com Exception Handler)
   clientes (por exemplo, JSON para clientes da web e protobuf para clientes
   móveis).
 - No lugar de usar a entidade, é importante usar um DTO, Data Transfer Object
+- É interessante nao misturar as informações da camada de dominio com as 
+  informações da camada de api
+- Why the domain model should not be used as resources in REST API? 
+- https://encr.pw/domainModelShouldNotBeUsedAsResourcesInRestApi
